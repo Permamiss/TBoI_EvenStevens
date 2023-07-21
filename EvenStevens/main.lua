@@ -13,7 +13,6 @@ end
 
 ---@param pickup EntityPickup
 function EvenStevens:OnPickupSpawned(pickup)
-	print("DEBUG: pickup: " .. tostring(pickup.Type) .. "." .. tostring(pickup.Variant) .. "." .. tostring(pickup.SubType))
 	if pickup.Type == EntityType.ENTITY_PICKUP and pickup.Variant == PickupVariant.PICKUP_COLLECTIBLE then
 		-- if pickup ID is Steven and last killed variant was Steven Baby, then
 		if pickup.SubType == CollectibleType.COLLECTIBLE_STEVEN and lastKilledVariant == NPC_VARIANT_STEVEN_BABY then
