@@ -19,15 +19,13 @@ function EvenStevens:OnPickupSpawned(pickup)
 			lastKilledVariant = 0
 			local pos = pickup.Position
 			-- swap out original drop for Little Steven
-			pickup:Remove()
-			Isaac.Spawn(EntityType.ENTITY_PICKUP, PickupVariant.PICKUP_COLLECTIBLE, CollectibleType.COLLECTIBLE_LITTLE_STEVEN, pos, Vector.Zero, nil)
+			pickup:Morph(pickup.Type, pickup.Variant, CollectibleType.COLLECTIBLE_LITTLE_STEVEN)
 		-- if pickup ID is Little Steven and last killed variant was Steven, then
 		elseif pickup.SubType == CollectibleType.COLLECTIBLE_LITTLE_STEVEN and lastKilledVariant == NPC_VARIANT_STEVEN then
 			lastKilledVariant = 0
 			local pos = pickup.Position
 			-- swap out original drop for Steven
-			pickup:Remove()
-			Isaac.Spawn(EntityType.ENTITY_PICKUP, PickupVariant.PICKUP_COLLECTIBLE, CollectibleType.COLLECTIBLE_STEVEN, pos, Vector.Zero, nil)
+			pickup:Morph(pickup.Type, pickup.Variant, CollectibleType.COLLECTIBLE_STEVEN)
 		end
 	end
 end
